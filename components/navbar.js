@@ -9,8 +9,7 @@ export default function Navbar() {
     }
 
     return (
-        // <div>
-        //bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r
+        <div>
             <nav className='sticky top-0 z-40 bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r flex justify-between p-3 py-4 h-full'>
                 <Link href='/'>
                     <a className='inline-flex items-center p-2 mr-4'>
@@ -56,6 +55,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
-        // </div>
+        </div>
     )
 }

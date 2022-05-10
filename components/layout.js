@@ -25,7 +25,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head> */}
             <Navbar />
-            <div className='relative h-screen overflow-y-auto'>{children}</div>
+            <div>{children}</div>
         </div>
     )
 }

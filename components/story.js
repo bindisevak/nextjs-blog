@@ -2,23 +2,22 @@ import Link from 'next/link'
 import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 
-export default function Story({
-    title,
-    coverImage,
-    date,
-    description,
-    id,
-}) {
-    console.log(coverImage);
+export default function Story(props) {
+    console.log(props);
+    const id = props.currentStory.id;
+    const title = props.currentStory.title;
+    const date = props.currentStory.date;
+    const description = props.currentStory.description;
+    const coverImage = props.currentStory.coverImage;
     return (
         <section>
-            <div className='mb-8 md:mb-16'>
+            <div className='mb-8 md:mb-16 grid place-items-center'>
                 <CoverImage
                     title={title}
                     src={coverImage}
                     id={id}
-                    height={620}
-                    width={1240}
+                    height={740}
+                    width={740}
                 />
             </div>
             <div className='md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28'>

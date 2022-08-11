@@ -6,25 +6,50 @@ import markdownToHtml from '../../lib/markdownToHtml'
 import CoverImage from '../../components/cover-image'
 import markdownStyles from '../../components/markdown-styles.module.css'
 import { GoChevronLeft } from "react-icons/go";
+import { GoChevronRight } from "react-icons/go";
 import { IconContext } from "react-icons";
 import Router from 'next/router'
+import Link from 'next/link'
 
-export default function Post({ post }) {
-    console.log(post);
+export default function Post({ post, allPosts }) {
+    let nextPostId = ''
+
+    for (let curr=0; curr<allPosts.length; curr++) {
+         if(post.id === allPosts[curr].id) {
+            nextPostId = curr + 1 === allPosts.length ? allPosts[0].id : allPosts[curr+1].id;
+        }
+    }
+
+    console.log(nextPostId);
+
     return (
         // <Layout>
-        <article>
+        <div className='overflow-auto bg-gradient-to-r from-gray-400 via-gray-100 to-gray-400'>
             <Head>
                 <title>{post.title}</title>
             </Head>
             <div className='ml-16 mt-10 mr-15'>
-                <button className='pb-10 text-base md:text-lg' onClick={() => Router.back()}>
-                    <IconContext.Provider
-                        value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
-                    >
-                        <GoChevronLeft /> Back to Stories
-                    </IconContext.Provider>
-                </button>
+                <div className='flex flex-row justify-between pb-14 text-base md:text-lg'>
+                    <Link href='/stories'>
+                        <a className='pr-16'>
+                            <IconContext.Provider
+                                value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
+                            >
+                                <GoChevronLeft /> Back to Stories
+                            </IconContext.Provider>
+                        </a>
+                    </Link>
+                    <Link as={`/posts/${nextPostId}`} href='/posts/[nextPostId]'>
+                        <a className='pr-16'>
+                            <IconContext.Provider
+                                value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
+                            >
+                                Next Story <GoChevronRight />
+                            </IconContext.Provider>
+                        </a>
+                    </Link>
+                </div>
+
                 <h1 className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
                     {post.title}
                 </h1>
@@ -37,8 +62,25 @@ export default function Post({ post }) {
                 <div className='max-w-2xl mx-auto'>
                     <div className={markdownStyles['markdown']} dangerouslySetInnerHTML={{ __html: post.content }} />
                 </div>
+
+                <div className='flex flex-row justify-between pt-10 pb-14 text-base md:text-lg'>
+                    <button className='' onClick={() => Router.back()}>
+                        <IconContext.Provider
+                            value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
+                        >
+                            <GoChevronLeft /> Back to Stories
+                        </IconContext.Provider>
+                    </button>
+                    <button className='pr-16' onClick={() => Router.back()}>
+                        <IconContext.Provider
+                            value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
+                        >
+                            Back to Stories <GoChevronRight />
+                        </IconContext.Provider>
+                    </button>
+                </div>
             </div>
-        </article>
+        </div>
         // </Layout>
         // <div>Hello World</div>
     )
@@ -70,15 +112,19 @@ export async function getStaticProps({ params }) {
     ])
 
     const content = await markdownToHtml(post.content || '');
-    console.log(post);
-    console.log(content);
+
+    const allPosts = getAllPosts(['id']);
+    console.log(allPosts);
 
     return {
         props: {
             post: {
                 ...post,
                 content,
-            }
+            },
+            allPosts: [
+                ...allPosts
+            ]
         }
     }
 }

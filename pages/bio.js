@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Bio() {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="overflow-auto h-screen grid grid-cols-1 md:grid-cols-2 gap-4 pt-10 px-10">
             <div className="pt-10 pl-10 pr-5">
             {/* bg-gradient-to-r from-gray-700 via-gray-900 to-black */}
             {/* bg-conic-to-tl from-sky-500 via-orange-200 to-yellow-600 */}
@@ -21,7 +21,7 @@ export default function Bio() {
                     className={'z-0 opacity-50'}
                     layout='responsive'
                     width="500"
-                    height="475"
+                    height="500"
                     objectFit='contain'
                     objectPosition='right top'
                 />

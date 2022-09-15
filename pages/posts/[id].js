@@ -14,9 +14,9 @@ import Link from 'next/link'
 export default function Post({ post, allPosts }) {
     let nextPostId = ''
 
-    for (let curr=0; curr<allPosts.length; curr++) {
-         if(post.id === allPosts[curr].id) {
-            nextPostId = curr + 1 === allPosts.length ? allPosts[0].id : allPosts[curr+1].id;
+    for (let curr = 0; curr < allPosts.length; curr++) {
+        if (post.id === allPosts[curr].id) {
+            nextPostId = curr + 1 === allPosts.length ? allPosts[0].id : allPosts[curr + 1].id;
         }
     }
 
@@ -35,7 +35,7 @@ export default function Post({ post, allPosts }) {
                             <IconContext.Provider
                                 value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
                             >
-                                <GoChevronLeft /> Back to Stories
+                                <GoChevronLeft /> <span className='hover:opacity-75'> Back to Stories </span>
                             </IconContext.Provider>
                         </a>
                     </Link>
@@ -44,7 +44,7 @@ export default function Post({ post, allPosts }) {
                             <IconContext.Provider
                                 value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
                             >
-                                Next Story <GoChevronRight />
+                                <span className='hover:opacity-75'>Next Story</span> <GoChevronRight />
                             </IconContext.Provider>
                         </a>
                     </Link>
@@ -64,31 +64,32 @@ export default function Post({ post, allPosts }) {
                 </div>
 
                 <div className='flex flex-row justify-between pt-10 pb-14 text-base md:text-lg'>
-                    <button className='' onClick={() => Router.back()}>
-                        <IconContext.Provider
-                            value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
-                        >
-                            <GoChevronLeft /> Back to Stories
-                        </IconContext.Provider>
-                    </button>
-                    <button className='pr-16' onClick={() => Router.back()}>
-                        <IconContext.Provider
-                            value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
-                        >
-                            Back to Stories <GoChevronRight />
-                        </IconContext.Provider>
-                    </button>
+                    <Link href='/stories'>
+                        <a className='pr-16'>
+                            <IconContext.Provider
+                                value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
+                            >
+                                <GoChevronLeft /><span className='hover:opacity-75'> Back to Stories </span>
+                            </IconContext.Provider>
+                        </a>
+                    </Link>
+                    <Link as={`/posts/${nextPostId}`} href='/posts/[nextPostId]'>
+                        <a className='pr-16'>
+                            <IconContext.Provider
+                                value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
+                            >
+                                <span className='hover:opacity-75'>Next Story</span> <GoChevronRight />
+                            </IconContext.Provider>
+                        </a>
+                    </Link>
                 </div>
             </div>
         </div>
-        // </Layout>
-        // <div>Hello World</div>
     )
 }
 
 export async function getStaticPaths() {
     const posts = getAllPosts(['id']);
-    console.log(posts);
 
     return {
         paths: posts.map((post) => {
@@ -114,7 +115,6 @@ export async function getStaticProps({ params }) {
     const content = await markdownToHtml(post.content || '');
 
     const allPosts = getAllPosts(['id']);
-    console.log(allPosts);
 
     return {
         props: {

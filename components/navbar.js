@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Styles from '../styles/animation.module.css';
 
 export default function Navbar() {
     const [active, setActive] = useState(false);
@@ -23,6 +25,39 @@ export default function Navbar() {
         setActive(!active);
     }
 
+    const textMotion = {
+        rest: {
+            width: 0,
+            height: 0,
+            right: 0,
+            bottom: 0,
+            borderBottom: "2px solid transparent",
+            borderRight: "2px solid transparent",
+            // color: "grey",
+            // x: 0,
+            transition: {
+                duration: 0.4,
+                type: "all",
+                ease: "easeIn"
+            }
+        },
+        hover: {
+            top: 0,
+            left: 0,
+            borderTop: "2px solid transparent",
+            borderLeft: "2px solid transparent",
+            width: "10px",
+            height: "10px",
+            borderColor: "white",
+            // color: "blue",
+            // x: 30,
+            transition: {
+                duration: 0.4,
+                type: "tween",
+                ease: "easeOut"
+            }
+        }
+    };
 
     return (
         <div className={`sticky top-0 z-40 ${navColor}`}>
@@ -32,7 +67,7 @@ export default function Navbar() {
                         <span className='font-mono italic text-xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-b from-pink-500 to-yellow-500 hover:from-pink-500 hover:to-yellow-200 tracking-wide'>
                             Fictional
                             <span className='text-yellow-100 hover:text-pink-100 ml-1 not-italic'>
-                            Reality
+                                Reality
                             </span>
                         </span>
                     </a>
@@ -59,18 +94,18 @@ export default function Navbar() {
                 >
                     <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto'>
                         <Link href='/'>
-                            <a onClick={handleClick} className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-gray-300 hover:text-black'>
-                                Home
+                            <a onClick={handleClick} className='hover-underline-animation lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center'>
+                            <span className={Styles.hoverUnderline}>Home</span>
                             </a>
                         </Link>
                         <Link href='/stories'>
-                            <a onClick={handleClick} className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-gray-300 hover:text-black'>
-                                Stories
+                            <a onClick={handleClick} className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center'>
+                                <span className={Styles.hoverUnderline}>Stories</span>
                             </a>
                         </Link>
                         <Link href='/bio'>
-                            <a onClick={handleClick} className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-gray-300 hover:text-black'>
-                                About me
+                            <a onClick={handleClick} className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center'>
+                            <span className={Styles.hoverUnderline}>About me</span>
                             </a>
                         </Link>
                     </div>

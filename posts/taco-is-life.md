@@ -1,6 +1,6 @@
 ---
 title: "Taco is Life"
-date: "2022-05-21"
+date: "2022-06-21"
 description: "There was definitely something in the tacos, because after sharing it, they both connected instantly, as if they were long lost sisters. They laughed and enjoyed each other's company, while sipping on cold beers, and munching on chips and salsa. They decided to take a stroll on the beach together, to burn some calories that they had just consumed. “So what was it like growing up in a joint family?” “It’s like an adventure. It has its ups and downs. But, if you’re with the right people, with whom your frequencies somewhat match, then the ups are a lot more than the downs.” “That’s super cool and very intriguing.” Irene said. “Oh, have you tried this coffee place?” Irene pointed at a small coffee shack. “Nope, I haven’t.” “Oh, you have to. They have a very interesting origin story.” Irene said, while they both got themselves a coffee. They walked for almost an hour at the beach, while occasionally taking breaks and sitting on a nearby bench."
 coverImage: "/images/taco.jpg"
 ---

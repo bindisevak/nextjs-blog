@@ -20,15 +20,14 @@ export default function Post({ post, allPosts }) {
     }
 
     return (
-        // <Layout>
         <div className='overflow-auto bg-gradient-to-r from-gray-400 via-gray-100 to-gray-400'>
             <Head>
                 <title>{post.title}</title>
             </Head>
-            <div className='ml-16 mt-10 mr-15'>
+            <div className='mt-10 ml-6 mr-6 md:ml-16 md:mr-16'>
                 <div className='flex flex-row justify-between pb-14 text-base md:text-lg'>
                     <Link href='/stories'>
-                        <a className='pr-16'>
+                        <a className='md:pr-16'>
                             <IconContext.Provider
                                 value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
                             >
@@ -37,7 +36,7 @@ export default function Post({ post, allPosts }) {
                         </a>
                     </Link>
                     <Link as={`/posts/${nextPostId}`} href='/posts/[nextPostId]'>
-                        <a className='pr-16'>
+                        <a className='md:pr-16'>
                             <IconContext.Provider
                                 value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
                             >
@@ -46,14 +45,16 @@ export default function Post({ post, allPosts }) {
                         </a>
                     </Link>
                 </div>
-
-                <h1 className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+                <motion.h1
+                    className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"
+                    initial={{ scale: 0.7, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    layoutId="title"
+                >
                     {post.title}
-                </h1>
+                </motion.h1>
                 <div className='mb-8 md:mb-16 grid place-items-center'>
-                    <motion.figure className='image' layoutId='image'>
-                        <CoverImage title={post.title} src={post.coverImage} height={540} width={540} />
-                    </motion.figure>
+                    <CoverImage title={post.title} src={post.coverImage} height={540} width={540} />
                 </div>
                 <div className='md-6 text-base md:text-lg mb-4'>
                     <DateFormatter dateString={post.date} />

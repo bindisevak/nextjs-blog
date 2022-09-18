@@ -1,6 +1,6 @@
 ---
 title: 'One Old Fashioned, Please'
-date: '2022-06-01'
+date: '2022-07-01'
 description: 'The next day, Adriana demonstrated the new cocktail recipes and had a taste session. She was a little critical when it came to making cocktails, especially the ones she had invented. So she made sure everyone got the percentage and proportion of the alcohol and the mixer right. “I love this masala chai cocktail. It’s sooo yum. I had never really tasted Chai before. I think I should give it a try.” Luke said, and Lisa agreed. “I agree. The spiciness of rye really elevates the taste. And adding a touch of honey to it is just divine.” “Well, traditionally Masala Chai has some kind of sweetener, hence. Actually, that one is my favorite as well. My dad makes masala chai at home almost every day. I’ve grown up drinking it.”'
 coverImage: "/images/drink.jpg"
 ---

@@ -2,7 +2,6 @@ import Link from 'next/link'
 import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Styles from '../styles/animation.module.css';
-import { motion } from 'framer-motion'
 
 export default function Story(props) {
     const id = props.currentStory.id;
@@ -13,15 +12,13 @@ export default function Story(props) {
     return (
         <section>
             <div className='mb-8 md:mb-16 grid place-items-center'>
-                <motion.figure className='image' layoutId='image'>
-                    <CoverImage
-                        title={title}
-                        src={coverImage}
-                        id={id}
-                        height={740}
-                        width={740}
-                    />
-                </motion.figure>
+                <CoverImage
+                    title={title}
+                    src={coverImage}
+                    id={id}
+                    height={740}
+                    width={740}
+                />
             </div>
             <div className='md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28'>
                 <div>

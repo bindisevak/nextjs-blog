@@ -1,4 +1,3 @@
-import Layout from '../../components/layout'
 import Head from 'next/head'
 import DateFormatter from '../../components/date-formatter'
 import { getPostById, getAllPosts } from '../../lib/posts'
@@ -8,8 +7,8 @@ import markdownStyles from '../../components/markdown-styles.module.css'
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
 import { IconContext } from "react-icons";
-import Router from 'next/router'
-import Link from 'next/link'
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Post({ post, allPosts }) {
     let nextPostId = ''
@@ -19,8 +18,6 @@ export default function Post({ post, allPosts }) {
             nextPostId = curr + 1 === allPosts.length ? allPosts[0].id : allPosts[curr + 1].id;
         }
     }
-
-    console.log(nextPostId);
 
     return (
         // <Layout>
@@ -54,7 +51,9 @@ export default function Post({ post, allPosts }) {
                     {post.title}
                 </h1>
                 <div className='mb-8 md:mb-16 sm:mx-0 flex justify-center items-center'>
-                    <CoverImage title={post.title} src={post.coverImage} height={540} width={540} />
+                    <motion.figure className='image' layoutId='image'>
+                        <CoverImage title={post.title} src={post.coverImage} height={540} width={540} />
+                    </motion.figure>
                 </div>
                 <div className='md-6 text-base md:text-lg mb-4'>
                     <DateFormatter dateString={post.date} />

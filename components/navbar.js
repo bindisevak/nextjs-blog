@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Styles from '../styles/animation.module.css';
 
 export default function Navbar() {
@@ -95,17 +94,17 @@ export default function Navbar() {
                     <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto'>
                         <Link href='/'>
                             <a onClick={handleClick} className='hover-underline-animation lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center'>
-                            <span className={Styles.hoverUnderline}>Home</span>
+                            <span className={Styles.hoverUnderlineWhite}>Home</span>
                             </a>
                         </Link>
                         <Link href='/stories'>
                             <a onClick={handleClick} className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center'>
-                                <span className={Styles.hoverUnderline}>Stories</span>
+                                <span className={Styles.hoverUnderlineWhite}>Stories</span>
                             </a>
                         </Link>
                         <Link href='/bio'>
                             <a onClick={handleClick} className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center'>
-                            <span className={Styles.hoverUnderline}>About me</span>
+                            <span className={Styles.hoverUnderlineWhite}>About me</span>
                             </a>
                         </Link>
                     </div>

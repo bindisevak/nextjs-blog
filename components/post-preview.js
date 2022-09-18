@@ -1,7 +1,8 @@
-//import Avatar from '../components/avatar'
-import DateFormatter from '../components/date-formatter'
-import CoverImage from '../components/cover-image'
-import Link from 'next/link'
+import DateFormatter from '../components/date-formatter';
+import CoverImage from '../components/cover-image';
+import Link from 'next/link';
+import Styles from '../styles/animation.module.css';
+import { motion } from 'framer-motion';
 
 export default function PostPreview({
     title,
@@ -10,11 +11,11 @@ export default function PostPreview({
     description,
     id
 }) {
-    console.log('HERE in PostPreview');
-    //console.log(title, coverImage, date, description, id);
+
     return (
         <div>
             <div className="mb-5">
+            <motion.figure className='image' layoutId='image'>
                 <CoverImage
                     id={id}
                     title={title}
@@ -26,10 +27,11 @@ export default function PostPreview({
                     placeholder='blur'
                     priority
                 />
+                </motion.figure>
             </div>
             <h3 className='text-3xl mb-3 leading-snug'>
                 <Link href={`/posts/${id}`}>
-                    <a className='hover:underline'>{title}</a>
+                    <a className={Styles.hoverUnderlineBlack}>{title}</a>
                 </Link>
             </h3>
             <div className='text-lg mb-4'>

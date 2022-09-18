@@ -3,7 +3,6 @@ import Image from 'next/image';
 import cn from 'classnames'
 
 export default function CoverImage({title, src, id, height, width}) {
-    console.log(src);
     const image = (
         <Image
             src={src}

@@ -50,7 +50,7 @@ export default function Post({ post, allPosts }) {
                 <h1 className="text-xl md:text-3xl lg:text-4xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
                     {post.title}
                 </h1>
-                <div className='mb-8 md:mb-16 sm:mx-0 flex justify-center items-center'>
+                <div className='mb-8 md:mb-16 grid place-items-center'>
                     <motion.figure className='image' layoutId='image'>
                         <CoverImage title={post.title} src={post.coverImage} height={540} width={540} />
                     </motion.figure>
@@ -64,7 +64,7 @@ export default function Post({ post, allPosts }) {
 
                 <div className='flex flex-row justify-between pt-10 pb-14 text-base md:text-lg'>
                     <Link href='/stories'>
-                        <a className='pr-16'>
+                        <a className='md:pr-16'>
                             <IconContext.Provider
                                 value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
                             >
@@ -73,7 +73,7 @@ export default function Post({ post, allPosts }) {
                         </a>
                     </Link>
                     <Link as={`/posts/${nextPostId}`} href='/posts/[nextPostId]'>
-                        <a className='pr-16'>
+                        <a className='md:pr-16'>
                             <IconContext.Provider
                                 value={{ style: { color: '#07678B', fontSize: '30px', display: 'inline' } }}
                             >

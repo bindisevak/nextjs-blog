@@ -22,6 +22,7 @@ export default function Bio() {
                     height="500"
                     objectFit='contain'
                     objectPosition='right top'
+                    priority
                 />
             </motion.figure>
         </div>

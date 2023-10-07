@@ -20,6 +20,7 @@ export default function Home() {
             layout='fill'
             objectFit='cover'
             objectPosition='center'
+            priority
           />
           <div className="absolute h-full top-0 right-0 bottom-0 left-0 bg-gradient-to-t from-transparent to-gray-600"></div>
           <div className="font-serif relative left-0 right-0 w-50 font-extrabold opacity-100 z-3 text-white">

@@ -6,7 +6,7 @@ export default function Footer() {
         <div className='flex flex-row space-y-0 justify-between items-center px-5 py-6 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900'>
             <div className="text-white">
                 <div>
-                    <p>Copyright &copy; 2022. Bindi Sevak. All rights reserved.</p>
+                    <p>Copyright &copy; 2025. Bindi Sevak. All rights reserved.</p>
                 </div>
             </div>
             <div className='space-x-4 flex flex-row items-start'>
